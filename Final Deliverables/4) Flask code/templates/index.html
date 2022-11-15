@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Python Flask Upload and display image</title>
+<link rel="stylesheet" href="{{url_for('static' ,filename='css/index.css')}}">
+<script src="./static/js/index.js"> </script>
+</head>
+<style>
+h2{
+    text-align: center;
+}
+
+</style>
+<body background="{{url_for('static' ,filename='images/img.jpg')}}">
+    <table align="center">
+        <tr>
+            <th>Select from </th>
+        </tr>
+        <tr>
+
+            <td><img width=100px height=100px src="{{url_for('static' ,filename='images/apple.jpg')}}"></a></td>
+            <td><img width=100px height=100px src ="{{url_for('static' ,filename='images/banana.jpg')}}"></a></td>
+            <td><img width=100px height=100px src ="{{url_for('static' ,filename='images/bhel puri.jpg')}}"></a></td>
+            <td><img width=100px height=100px src ="{{url_for('static' ,filename='images/burger.jpg')}}"></a></td>
+
+        </tr>
+        <tr>
+            <td><img width=100px height=100px src ="{{url_for('static' ,filename='images/mango.jpg')}}"></a></td>
+            <td><img width=100px height=100px src ="{{url_for('static' ,filename='images/onion.jpg')}}"></a></td>
+            <td><img width=100px height=100px src ="{{url_for('static' ,filename='images/egg.jpg')}}"></a></td>
+            <td><img width=100px height=100px src ="{{url_for('static' ,filename='images/pizza.jpg')}}"></td>
+
+        </tr>
+    </table>
+
+
+<div class="container">
+<div class="row">
+    <h2>Select a file to upload</h2>
+
+    <form method="post" action="/classify" enctype="multipart/form-data">
+        <p>
+                <input type="file" name="file">
+        </p>
+        <p>
+            <input type="submit" value="Classify" class="btn btn-white-blue">
+        </p>
+    </form>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul style= "list-style: none">
+            {% for message in messages %}
+                <li> <h1><b>{{ message }}</b></h1></li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <img width=300px height=300px src="{{ url_for('static', filename=filename) }}" >
+            <ul style= "list-style: none">
+                <li><h1 style="color:red;"><b>{{name}}</b></h1></li>
+                <li><h2><b>{{info}}</b></h2></li>
+                <li><h2><b>{{a}}</b></h2></li>
+                <li><h2><b>{{b}}</b></h2></li>
+                <li><h2><b>{{c}}</b></h2></li>
+                <li><h2><b>{{d}}</b></h2></li>
+                <li><h2><b>{{e}}</b></h2></li>
+                <li><h2><b>{{f}}</b></h2></li>
+                <li><h2><b>{{g}}</b></h2></li>
+
+            </ul>
+        </div>
+    {% endif %}
+</div>
+</div>
+
+</body>
+</html>
