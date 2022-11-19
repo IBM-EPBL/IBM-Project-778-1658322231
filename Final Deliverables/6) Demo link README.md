@@ -1,3 +1,3 @@
-https://www.youtube.com/watch?v=VGzcnulewac&t=289s
+https://youtu.be/VGzcnulewac
 
-Drive link for Demo of our project
+Youtube link - Demo of our project
